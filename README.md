@@ -1,4 +1,8 @@
 # 2a_Stop_and_Wait_Protocol
+
+## Register Number: 24003058
+## Name: NITHISH G S
+
 ## AIM 
 To write a python program to perform stop and wait protocol
 ## ALGORITHM
@@ -8,40 +12,41 @@ To write a python program to perform stop and wait protocol
 4. To send frames to server from the client side.
 5. If your frames reach the server it will send ACK signal to client
 6. Stop the Program
-## PROGRAM
-## CLIENT: 
-``` 
-import socket 
-s=socket.socket() 
-s.listen(5) 
-c,addr=s.accept() 
-while True: 
-    i=input("Enter a data: ") 
-    c.send(i.encode()) 
-    ack=c.recv(1024).decode() 
-    if ack: 
-        print(ack) 
-        continue 
-    else: 
-        c.close() 
-        break 
- ```
-
-## SERVER: 
+## PROGRAM:
+## CLIENT:
 ```
-import socket 
-s=socket.socket() 
-s.connect(('localhost',8000)) 
-while True: 
-    print(s.recv(1024).decode()) 
+import socket
+s=socket.socket()
+s.bind(('localhost',8000))
+s.listen(5)
+c,addr=s.accept()
+while True:
+    i=input("Enter a data: ")
+    c.send(i.encode())
+    ack=c.recv(1024).decode()
+    if ack:
+        print(ack)
+        continue
+    else:
+        c.close()
+        break
+```
+## SERVER:
+```
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True:
+    print(s.recv(1024).decode())
     s.send("Acknowledgement Recived".encode())
 ```
-## OUTPUT
-## CLIENT:
-![image](https://github.com/user-attachments/assets/2d6d520d-29e0-4aa6-9e77-3309a91f4274)
+## OUTPUT:
 
-## SERVER
-![image](https://github.com/user-attachments/assets/400d6318-4925-443e-b56a-2b5b51fd2945)
+## CLIENT:
+![image](https://github.com/Ragupathi1/2a_Stop_and_Wait_Protocol/assets/143526042/7fb1d4d2-bfee-4686-b3bf-9374d56f5963)
+
+## SERVER:
+![image](https://github.com/Ragupathi1/2a_Stop_and_Wait_Protocol/assets/143526042/5b3c1675-0ac8-408d-92d3-822032cefcb0)
 
 
 ## RESULT
